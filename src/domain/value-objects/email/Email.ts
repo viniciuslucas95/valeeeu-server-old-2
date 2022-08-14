@@ -10,12 +10,14 @@ export class Email {
     ) {
         this.checkEmail(email)
 
+        const emailValueObject = new Email(email)
+
         const isUnique = await emailUniquenessChecker
-            .isUnique(email)
+            .isUnique(emailValueObject)
 
         if (!isUnique) throw new EmailConflictError()
 
-        return new Email(email)
+        return emailValueObject
     }
 
     static from(email: string) {

@@ -1,3 +1,5 @@
+import { Email } from "./Email";
+
 export interface IEmailUniquenessChecker {
-    isUnique: (email: string) => Promise<boolean>
+    isUnique: (email: Email) => Promise<boolean>
 }

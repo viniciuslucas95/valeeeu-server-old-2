@@ -11,8 +11,8 @@ export class User extends Entity {
         return this._email.value
     }
 
-    public get id() {
-        return this._id.value
+    public get password() {
+        return this._password.value
     }
 
     private constructor(
@@ -24,7 +24,7 @@ export class User extends Entity {
         super(id)
     }
 
-    static async create(id: Id, name: Name, email: Email, password: Password) {
+    static create(id: Id, name: Name, email: Email, password: Password) {
         return new User(id, name, email, password)
     }
 

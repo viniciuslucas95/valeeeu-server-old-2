@@ -14,3 +14,4 @@ export {
 export { User, WrongCredentialsError } from './user'
 export { LoginManager } from './auth'
 export { Entity } from './Entity'
+export { StatusCode } from './StatusCode'

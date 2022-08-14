@@ -1,3 +1,5 @@
+import { Id } from "./Id";
+
 export interface IIdUniquenessChecker {
-    isUnique: (id: string) => Promise<boolean>
+    isUnique: (id: Id) => Promise<boolean>
 }

@@ -1,0 +1,1 @@
+export { BcryptPasswordHandler } from './BcryptPasswordHandler'

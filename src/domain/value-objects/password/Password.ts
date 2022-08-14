@@ -5,7 +5,7 @@ import { PasswordTooShortError } from "./PasswordTooShortError";
 export class Password {
     private static readonly MIN_PASSWORD_LENGTH = 6
 
-    private constructor(private readonly _value: string) { }
+    private constructor(public readonly value: string) { }
 
     static async create(password: string, passwordHasher: IPasswordHasher) {
         this.checkPassword(password)
@@ -18,7 +18,7 @@ export class Password {
     async verify(password: string, passwordVerifier: IPasswordVerifier) {
         Password.checkPassword(password)
 
-        return await passwordVerifier.verify(password, this._value)
+        return await passwordVerifier.verify(password, this.value)
     }
 
     private static checkPassword(password: string) {

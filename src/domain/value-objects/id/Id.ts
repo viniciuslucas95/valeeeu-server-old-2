@@ -11,16 +11,18 @@ export class Id {
         idUniquenessChecker: IIdUniquenessChecker
     ) {
         let id = idGenerator.generate()
+        let idValueObject = new Id(id)
         let isIdUnique = await idUniquenessChecker
-            .isUnique(id)
+            .isUnique(idValueObject)
 
         while (!isIdUnique) {
             id = idGenerator.generate()
+            idValueObject = new Id(id)
             isIdUnique = await idUniquenessChecker
-                .isUnique(id)
+                .isUnique(idValueObject)
         }
 
-        return new Id(id)
+        return idValueObject
     }
 
     static from(id: string, idValidator?: IIdValidator) {

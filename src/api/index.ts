@@ -1,0 +1,1 @@
+export { ExpressUserController } from './user'
