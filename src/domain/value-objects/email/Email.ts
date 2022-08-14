@@ -2,13 +2,13 @@ import { EmailConflictError } from "./EmailConflictError";
 import { IEmailUniquenessChecker } from "./IEmailUniquenessChecker";
 
 export class Email {
-    private constructor(readonly value: string) { }
+    private constructor(public value: string) { }
 
     static async create(
         email: string,
         emailUniquenessChecker: IEmailUniquenessChecker
     ) {
-        // Validate email
+        this.checkEmail(email)
 
         const isUnique = await emailUniquenessChecker
             .isUnique(email)
@@ -19,8 +19,12 @@ export class Email {
     }
 
     static from(email: string) {
-        // Validate email
+        this.checkEmail(email)
 
         return new Email(email)
+    }
+
+    private static checkEmail(email: string) {
+        // Validate email
     }
 }

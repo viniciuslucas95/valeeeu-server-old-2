@@ -1,25 +1,14 @@
-import { Email, Id, Name } from "./value-objects";
+import { Email, Id, Name, Password } from "./value-objects";
 
 export class User {
-    public get id() {
-        return this._id.value
-    }
-
-    public get name() {
-        return this._name.value
-    }
-
-    public get email() {
-        return this._email.value
-    }
-
     private constructor(
-        private readonly _id: Id,
-        private _name: Name,
-        private _email: Email
+        public readonly _id: Id,
+        public name: Name,
+        public email: Email,
+        public password: Password
     ) { }
 
-    static async create(id: Id, name: Name, email: Email) {
-        return new User(id, name, email)
+    static async create(id: Id, name: Name, email: Email, password: Password) {
+        return new User(id, name, email, password)
     }
 }

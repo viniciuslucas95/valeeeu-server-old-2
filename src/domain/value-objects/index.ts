@@ -7,3 +7,7 @@ export {
     Email, EmailConflictError,
     IEmailUniquenessChecker, InvalidEmailError
 } from './email'
+export {
+    IPasswordHasher, IPasswordVerifier,
+    Password, PasswordTooShortError
+} from './password'

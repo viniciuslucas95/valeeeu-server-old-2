@@ -4,7 +4,7 @@ import { IIdValidator } from "./IIdValidator"
 import { InvalidIdError } from "./InvalidIdError"
 
 export class Id {
-    private constructor(readonly value: string) { }
+    private constructor(public readonly value: string) { }
 
     static async create(
         idGenerator: IIdGenerator,

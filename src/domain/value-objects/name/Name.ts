@@ -1,15 +1,19 @@
 export class Name {
-    private constructor(readonly value: string) { }
+    private constructor(public value: string) { }
 
     static create(name: string) {
-        // Validate name
+        this.checkName(name)
 
         return new Name(name)
     }
 
     static from(name: string) {
-        // Validate name
+        this.checkName(name)
 
         return new Name(name)
+    }
+
+    private static checkName(name: string) {
+        // Validate name
     }
 }
