@@ -1,5 +1,5 @@
 export class Name {
-    private constructor(public value: string) { }
+    private constructor(public readonly value: string) { }
 
     static create(name: string) {
         this.checkName(name)

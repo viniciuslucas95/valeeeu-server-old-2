@@ -2,7 +2,7 @@ import { EmailConflictError } from "./EmailConflictError";
 import { IEmailUniquenessChecker } from "./IEmailUniquenessChecker";
 
 export class Email {
-    private constructor(public value: string) { }
+    private constructor(public readonly value: string) { }
 
     static async create(
         email: string,

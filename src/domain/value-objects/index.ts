@@ -11,3 +11,7 @@ export {
     IPasswordHasher, IPasswordVerifier,
     Password, PasswordTooShortError
 } from './password'
+export {
+    ITokenGenerator, ITokenPayload, Token,
+    ITokenVerifier
+} from './token'

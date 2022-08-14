@@ -23,8 +23,8 @@ export class Id {
         return new Id(id)
     }
 
-    static from(id: string, idValidator: IIdValidator) {
-        if (!idValidator.validate(id))
+    static from(id: string, idValidator?: IIdValidator) {
+        if (!idValidator?.validate(id))
             throw new InvalidIdError()
 
         return new Id(id)
