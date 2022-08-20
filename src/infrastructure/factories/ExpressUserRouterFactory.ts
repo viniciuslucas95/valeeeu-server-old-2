@@ -1,7 +1,10 @@
 import { Router } from 'express'
 
 import { ExpressUserController } from '../../api'
-import { EmailUniquenessChecker, IdUniquenessChecker, UserCreationCommandHandler } from '../../application'
+import {
+    EmailUniquenessChecker, IdUniquenessChecker,
+    UserCreationCommandHandler
+} from '../../application'
 import { BcryptHasherHandler } from '../bcrypt'
 import { MemoryUserRepository, UuidIdHandler } from '../memory'
 

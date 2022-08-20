@@ -1,4 +1,6 @@
-export class Logger {
+import { ILogger } from "./ILogger"
+
+export class Logger implements ILogger {
     log(message: string) {
         const date = new Date()
         const text = `DEBUG: ${this.getDateString(date)} - ${message}`

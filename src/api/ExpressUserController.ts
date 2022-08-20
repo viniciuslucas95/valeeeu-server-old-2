@@ -1,11 +1,12 @@
-import { NextFunction, Request, Response } from "express";
-import { IUserCreationCommandHandler, UserCreationCommand } from "../../application";
-import { StatusCode } from "../../domain";
+import { Request, Response } from "express";
+
+import { IUserCreationCommandHandler, UserCreationCommand } from "../application";
+import { StatusCode } from "../domain";
 
 export class ExpressUserController {
     constructor(private readonly _userCreationCommandHandler: IUserCreationCommandHandler) { }
 
-    async post(req: Request, res: Response, next: NextFunction) {
+    async post(req: Request, res: Response) {
         const body = req.body
 
         const userCreationCommand = new UserCreationCommand(

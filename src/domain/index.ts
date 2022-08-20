@@ -1,4 +1,4 @@
-export { Logger } from './Logger'
+export { Logger, ILogger } from './logger'
 export {
     BadRequestError, BaseError, ConflictError,
     UnauthorizedError, InvalidLengthError,
