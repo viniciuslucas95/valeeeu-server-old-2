@@ -1,6 +1,6 @@
-import { ICreationCommandHandler } from "../../configs";
+import { ICommandHandler } from "../../shared";
 import { UserCreationCommand } from "./UserCreationCommand";
 import { UserCreationDto } from "./UserCreationDto";
 
 export interface IUserCreationCommandHandler
-    extends ICreationCommandHandler<UserCreationCommand, UserCreationDto> { }
+    extends ICommandHandler<UserCreationCommand, UserCreationDto> { }

@@ -1,1 +1,1 @@
-export { BcryptPasswordHandler } from './BcryptPasswordHandler'
+export { BcryptHasherHandler } from './BcryptHasherHandler'

@@ -1,5 +1,6 @@
-import { Entity } from "../Entity";
-import { Email, Id, IPasswordVerifier, Name, Password } from "../value-objects";
+import { Email } from "./email";
+import { Password } from "./Password";
+import { Entity, Id, IHashVerifier, Name } from "../shared";
 import { WrongCredentialsError } from "./WrongCredentialsError";
 
 export class User extends Entity {
@@ -28,7 +29,7 @@ export class User extends Entity {
         return new User(id, name, email, password)
     }
 
-    async verifyPassword(password: string, passwordVerifier: IPasswordVerifier) {
+    async verifyPassword(password: string, passwordVerifier: IHashVerifier) {
         const isAuthenticated = await this._password
             .verify(password, passwordVerifier)
 

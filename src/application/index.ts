@@ -2,10 +2,12 @@ export {
     IUserRepositoryWriter, UserCreationCommand,
     UserCreationCommandHandler, IUserCreationNotifier,
     IUserCreationCommandHandler, EmailUniquenessChecker,
-    IEmailRepositoryReader, UserCreationDto
+    UserCreationDto, IUserRepositoryReader
 } from './user'
-export {
-    ICreationCommand, ICreationCommandHandler,
-    IRepositoryReader
-} from './configs'
+export { ICommandHandler } from './shared'
 export { IdUniquenessChecker } from './services'
+export {
+    LoginCommandHandler, ILoginCommandHandler, LoginCommand,
+    LoginDto, TokenPayload
+} from './auth'
+export { IRepositoryReader, IRepositoryWriter } from './repositories'

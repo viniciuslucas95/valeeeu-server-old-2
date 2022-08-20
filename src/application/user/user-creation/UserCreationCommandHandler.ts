@@ -1,7 +1,8 @@
 import {
     Email, Id, IEmailUniquenessChecker,
+    IHashGenerator,
     IIdGenerator, IIdUniquenessChecker,
-    IPasswordHasher, Name, Password, User
+    Name, Password, User
 } from "../../../domain";
 import { IUserRepositoryWriter } from "../IUserRepositoryWriter";
 import { IUserCreationCommandHandler } from "./IUserCreationCommandHandler";
@@ -13,7 +14,7 @@ export class UserCreationCommandHandler implements IUserCreationCommandHandler {
         private readonly _idGenerator: IIdGenerator,
         private readonly _idUniquenessChecker: IIdUniquenessChecker,
         private readonly _emailUniquenessChecker: IEmailUniquenessChecker,
-        private readonly _passwordHasher: IPasswordHasher,
+        private readonly _passwordHasher: IHashGenerator,
         private readonly _userWriteRepository: IUserRepositoryWriter,
         // private readonly _userCreationNotifier: IUserCreationNotifier
     ) { }
@@ -26,7 +27,7 @@ export class UserCreationCommandHandler implements IUserCreationCommandHandler {
 
         const user = User.create(id, name, email, password)
 
-        await this._userWriteRepository.create(user)
+        await this._userWriteRepository.createOrUpdate(user)
 
         // await this._userCreationNotifier.notify(user)
 

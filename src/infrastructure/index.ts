@@ -3,5 +3,5 @@ export {
     MemoryUserRepository
 } from './user-repository'
 export { UuidIdHandler } from './uuid'
-export { BcryptPasswordHandler } from './bcrypt'
+export { BcryptHasherHandler as BcryptPasswordHandler } from './bcrypt'
 export { ExpressUserRouterFactory } from './factories'

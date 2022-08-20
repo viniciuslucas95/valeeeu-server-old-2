@@ -1,5 +1,4 @@
 import { User } from "../../domain";
+import { IRepositoryWriter } from "../repositories";
 
-export interface IUserRepositoryWriter {
-    create: (user: User) => Promise<void>
-}
+export interface IUserRepositoryWriter extends IRepositoryWriter<User> { }

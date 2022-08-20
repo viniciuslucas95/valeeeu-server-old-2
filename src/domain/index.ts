@@ -1,17 +1,16 @@
 export { Logger } from './Logger'
 export {
     BadRequestError, BaseError, ConflictError,
-    UnauthorizedError
+    UnauthorizedError, InvalidLengthError,
+    InvalidTypeError, RequiredValueError, InvalidFormatError
 } from './errors'
 export {
-    IIdGenerator, IIdUniquenessChecker,
-    IIdValidator, Id, InvalidIdError,
-    Email, EmailConflictError, IEmailUniquenessChecker,
-    IPasswordHasher, IPasswordVerifier, InvalidEmailError,
-    InvalidNameError, Name, Password, PasswordTooShortError,
-    ITokenGenerator, ITokenPayload, Token
-} from './value-objects'
-export { User, WrongCredentialsError } from './user'
-export { LoginManager } from './auth'
-export { Entity } from './Entity'
+    User, WrongCredentialsError, Email, IEmailUniquenessChecker,
+    Password
+} from './user'
 export { StatusCode } from './StatusCode'
+export {
+    Entity, IIdGenerator, IIdUniquenessChecker,
+    IIdValidator, Id, Name, IHashGenerator,
+    IHashVerifier, ValueObject
+} from './shared'
