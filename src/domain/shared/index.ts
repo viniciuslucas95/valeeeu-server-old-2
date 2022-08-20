@@ -1,6 +1,6 @@
 export { Entity } from './Entity'
 export { IIdHandler, IIdUniquenessChecker, Id } from './id'
-export { Name } from './Name'
+export { Name } from './name'
 export { ValueObject } from './ValueObject'
 export { AggregateRoot } from './AggregateRoot'
 export { IHashHandler } from './IHashHandler'

@@ -1,5 +1,5 @@
-import { ValueObject } from "./ValueObject"
-import { InvalidLengthError, InvalidTypeError } from "../errors"
+import { InvalidTypeError, InvalidLengthError } from "../../errors"
+import { ValueObject } from "../ValueObject"
 
 export class Name extends ValueObject {
     private static readonly MIN_LENGTH = 2
