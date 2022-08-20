@@ -1,6 +1,6 @@
-import { Entity, Id } from "../../domain";
+import { AggregateRoot, Id } from "../../domain";
 
-export interface IRepositoryReader<T extends Entity> {
+export interface IRepositoryReader<T extends AggregateRoot> {
     doesExist(id: Id): Promise<boolean>
-    find(id: Id): Promise<T | undefined>
+    get(id: Id): Promise<T | undefined>
 }

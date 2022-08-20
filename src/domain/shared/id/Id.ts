@@ -1,8 +1,7 @@
 import { InvalidFormatError } from "../../errors"
 import { ValueObject } from "../ValueObject"
-import { IIdGenerator } from "./IIdGenerator"
+import { IIdHandler } from "./IIdHandler"
 import { IIdUniquenessChecker } from "./IIdUniquenessChecker"
-import { IIdValidator } from "./IIdValidator"
 
 export class Id extends ValueObject {
     private constructor(value: string) {
@@ -10,16 +9,16 @@ export class Id extends ValueObject {
     }
 
     static async create(
-        idGenerator: IIdGenerator,
+        idHandler: IIdHandler,
         idUniquenessChecker: IIdUniquenessChecker
     ) {
-        let id = idGenerator.generate()
+        let id = idHandler.generate()
         let idValueObject = new Id(id)
         let isIdUnique = await idUniquenessChecker
             .isUnique(idValueObject)
 
         while (!isIdUnique) {
-            id = idGenerator.generate()
+            id = idHandler.generate()
             idValueObject = new Id(id)
             isIdUnique = await idUniquenessChecker
                 .isUnique(idValueObject)
@@ -28,9 +27,9 @@ export class Id extends ValueObject {
         return idValueObject
     }
 
-    static from(id: string, idValidator?: IIdValidator) {
-        if (idValidator && !idValidator.validate(id))
-            throw new InvalidFormatError('Id', idValidator.format)
+    static from(id: string, idHandler?: IIdHandler) {
+        if (idHandler && !idHandler.validate(id))
+            throw new InvalidFormatError('Id', idHandler.format)
 
         return new Id(id)
     }

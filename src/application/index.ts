@@ -1,8 +1,8 @@
 export {
     IUserRepositoryWriter, UserCreationCommand,
-    UserCreationCommandHandler, IUserCreationNotifier,
     IUserCreationCommandHandler, EmailUniquenessChecker,
-    UserCreationDto, IUserRepositoryReader
+    UserCreationDto, IUserRepositoryReader,
+    UserCreationCommandHandler
 } from './user'
 export { ICommandHandler } from './shared'
 export { IdUniquenessChecker } from './services'

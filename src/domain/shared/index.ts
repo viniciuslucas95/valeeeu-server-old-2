@@ -1,9 +1,6 @@
 export { Entity } from './Entity'
-export {
-    IIdGenerator, IIdUniquenessChecker,
-    IIdValidator, Id
-} from './id'
+export { IIdHandler, IIdUniquenessChecker, Id } from './id'
 export { Name } from './Name'
 export { ValueObject } from './ValueObject'
-export { IHashGenerator } from './IHashGenerator'
-export { IHashVerifier } from './IHashVerifier'
+export { AggregateRoot } from './AggregateRoot'
+export { IHashHandler } from './IHashHandler'

@@ -3,24 +3,27 @@ import { Router } from 'express'
 import { ExpressUserController } from '../../api'
 import {
     EmailUniquenessChecker, IdUniquenessChecker,
+    IUserRepositoryReader,
+    IUserRepositoryWriter,
     UserCreationCommandHandler
 } from '../../application'
-import { BcryptHasherHandler } from '../bcrypt'
-import { MemoryUserRepository, UuidIdHandler } from '../memory'
+import { BcryptHasherHandler } from '../BcryptHasherHandler'
+import { UuidIdHandler } from '../memory'
 
 export class ExpressUserRouterFactory {
-    static create() {
+    static create(
+        userRepository: IUserRepositoryReader & IUserRepositoryWriter
+    ) {
         const router = Router()
-        const userRepository = new MemoryUserRepository()
-        const idGenerator = new UuidIdHandler()
+        const idHandler = new UuidIdHandler()
         const idUniquenessChecker = new IdUniquenessChecker(userRepository)
         const emailUniquenessChecker = new EmailUniquenessChecker(userRepository)
-        const passwordHandler = BcryptHasherHandler.create()
+        const hashHandler = BcryptHasherHandler.create()
         const userCreationCommandHandler = new UserCreationCommandHandler(
-            idGenerator,
+            idHandler,
             idUniquenessChecker,
             emailUniquenessChecker,
-            passwordHandler,
+            hashHandler,
             userRepository
         )
         const userController = new ExpressUserController(userCreationCommandHandler)

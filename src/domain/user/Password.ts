@@ -1,6 +1,5 @@
 import { InvalidLengthError, InvalidTypeError } from "../errors";
-import { ValueObject } from "../shared";
-import { IHashGenerator, IHashVerifier } from "../shared";
+import { IHashHandler, ValueObject } from "../shared";
 
 export class Password extends ValueObject {
     private static readonly MIN_LENGTH = 6
@@ -10,22 +9,25 @@ export class Password extends ValueObject {
         super(value)
     }
 
-    static async create(password: string, passwordHasher: IHashGenerator) {
+    static async create(password: string, hashHandler: IHashHandler) {
         this.checkPassword(password)
 
-        const hashedPassword = await passwordHasher.hash(password)
+        const hashedPassword = await hashHandler.hash(password)
 
         return new Password(hashedPassword)
     }
 
-    static from(password: string) {
+    static from(password: string, validate?: boolean) {
+        if (validate)
+            this.checkPassword(password)
+
         return new Password(password)
     }
 
-    async verify(password: string, passwordVerifier: IHashVerifier) {
+    async verify(password: string, hashHandler: IHashHandler) {
         Password.checkPassword(password)
 
-        return await passwordVerifier.verify(password, this.value)
+        return await hashHandler.verify(password, this.value)
     }
 
     private static checkPassword(password: string) {

@@ -15,7 +15,7 @@ export class ExpressUserController {
             body.password
         )
 
-        const result = await this._userCreationCommandHandler.create(userCreationCommand)
+        const result = await this._userCreationCommandHandler.handle(userCreationCommand)
 
         res.status(StatusCode.created).send(result)
     }

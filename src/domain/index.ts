@@ -2,15 +2,16 @@ export { Logger, ILogger } from './logger'
 export {
     BadRequestError, BaseError, ConflictError,
     UnauthorizedError, InvalidLengthError,
-    InvalidTypeError, RequiredValueError, InvalidFormatError
+    InvalidTypeError, RequiredValueError, InvalidFormatError,
+    NotFoundError, InternalServerError
 } from './errors'
 export {
     User, WrongCredentialsError, Email, IEmailUniquenessChecker,
-    Password
+    Password, HashedToken, ITokenHandler, Token, NonHashedToken
 } from './user'
 export { StatusCode } from './StatusCode'
 export {
-    Entity, IIdGenerator, IIdUniquenessChecker,
-    IIdValidator, Id, Name, IHashGenerator,
-    IHashVerifier, ValueObject
+    Entity, IIdUniquenessChecker, Id, Name,
+    IHashHandler, ValueObject, AggregateRoot,
+    IIdHandler
 } from './shared'

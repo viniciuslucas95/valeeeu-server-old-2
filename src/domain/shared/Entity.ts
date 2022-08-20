@@ -1,6 +1,7 @@
+import { AggregateRoot } from "./AggregateRoot";
 import { Id } from "./id";
 
-export abstract class Entity {
+export abstract class Entity extends AggregateRoot {
     public readonly createdAt: Date
 
     private _updatedAt: Date
@@ -14,6 +15,8 @@ export abstract class Entity {
     }
 
     protected constructor(protected readonly _id: Id) {
+        super()
+
         const now = new Date()
 
         this.createdAt = now

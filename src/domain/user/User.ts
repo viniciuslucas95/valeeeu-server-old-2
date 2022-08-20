@@ -1,7 +1,8 @@
 import { Email } from "./email";
 import { Password } from "./Password";
-import { Entity, Id, IHashVerifier, Name } from "../shared";
+import { Entity, Id, IHashHandler, Name } from "../shared";
 import { WrongCredentialsError } from "./WrongCredentialsError";
+import { Token } from "./token";
 
 export class User extends Entity {
     public get name() {
@@ -16,6 +17,17 @@ export class User extends Entity {
         return this._password.value
     }
 
+    public get accessToken() {
+        return this._accessToken?.value
+    }
+
+    public get refreshToken() {
+        return this._refreshToken?.value
+    }
+
+    private _accessToken?: Token
+    private _refreshToken?: Token
+
     private constructor(
         id: Id,
         private _name: Name,
@@ -29,10 +41,22 @@ export class User extends Entity {
         return new User(id, name, email, password)
     }
 
-    async verifyPassword(password: string, passwordVerifier: IHashVerifier) {
+    async verifyPassword(password: string, hashHandler: IHashHandler) {
         const isAuthenticated = await this._password
-            .verify(password, passwordVerifier)
+            .verify(password, hashHandler)
 
         if (!isAuthenticated) throw new WrongCredentialsError()
+    }
+
+    changeAccessToken(accessToken?: Token) {
+        this._accessToken = accessToken
+
+        this.updateModificationDate()
+    }
+
+    changeRefreshToken(refreshToken?: Token) {
+        this._refreshToken = refreshToken
+
+        this.updateModificationDate()
     }
 }

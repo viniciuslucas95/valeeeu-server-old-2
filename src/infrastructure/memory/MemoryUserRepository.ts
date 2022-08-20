@@ -20,8 +20,14 @@ export class MemoryUserRepository implements
         this._users = this._users.filter(user => user.id !== id.value)
     }
 
-    async find(id: Id) {
+    async get(id: Id) {
         const user = this._users.find(user => user.id === id.value)
+
+        return user?.toEntity()
+    }
+
+    async getByEmail(email: Email) {
+        const user = this._users.find(user => user.email === email.value)
 
         return user?.toEntity()
     }

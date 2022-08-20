@@ -9,7 +9,7 @@
     "start": "node dist/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vinícius Lucas",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

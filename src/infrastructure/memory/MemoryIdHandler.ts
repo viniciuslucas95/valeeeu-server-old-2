@@ -1,6 +1,6 @@
-import { IIdGenerator, IIdValidator } from "../../domain";
+import { IIdHandler } from "../../domain";
 
-export class UuidIdHandler implements IIdGenerator, IIdValidator {
+export class UuidIdHandler implements IIdHandler {
     format = 'string'
 
     private currentId = 1

@@ -1,7 +1,8 @@
 import { hash as bcryptHash, genSaltSync, compare } from 'bcrypt'
-import { IHashGenerator, IHashVerifier } from '../../domain'
 
-export class BcryptHasherHandler implements IHashGenerator, IHashVerifier {
+import { IHashHandler } from '../domain'
+
+export class BcryptHasherHandler implements IHashHandler {
     private constructor(private readonly _salt: string) { }
 
     async hash(password: string) {

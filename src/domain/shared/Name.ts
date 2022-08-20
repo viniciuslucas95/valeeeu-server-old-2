@@ -15,8 +15,9 @@ export class Name extends ValueObject {
         return new Name(name)
     }
 
-    static from(name: string) {
-        this.checkName(name)
+    static from(name: string, validate?: boolean) {
+        if (validate)
+            this.checkName(name)
 
         return new Name(name)
     }

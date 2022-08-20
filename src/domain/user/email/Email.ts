@@ -23,8 +23,9 @@ export class Email extends ValueObject {
         return emailValueObject
     }
 
-    static from(email: string) {
-        this.checkEmail(email)
+    static from(email: string, validate?: boolean) {
+        if (validate)
+            this.checkEmail(email)
 
         return new Email(email)
     }
