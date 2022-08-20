@@ -1,5 +1,5 @@
-import { IUserRepositoryReader, IUserRepositoryWriter } from "../../../application";
-import { Email, Id, User } from "../../../domain";
+import { IUserRepositoryReader, IUserRepositoryWriter } from "../../application";
+import { Email, Id, User } from "../../domain";
 import { MemoryUserDataModel } from "./MemoryUserDataModel";
 
 export class MemoryUserRepository implements

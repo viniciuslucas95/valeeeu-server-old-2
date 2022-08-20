@@ -1,14 +1,19 @@
-import { v4, validate as uuidValidate } from "uuid";
 import { IIdGenerator, IIdValidator } from "../../domain";
 
 export class UuidIdHandler implements IIdGenerator, IIdValidator {
     format = 'string'
 
+    private currentId = 1
+
     generate() {
-        return v4()
+        const id = this.currentId
+
+        this.currentId += 1
+
+        return id.toString()
     }
 
     validate(id: string) {
-        return uuidValidate(id)
+        return true
     }
 }

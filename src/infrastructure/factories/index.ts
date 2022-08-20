@@ -1,1 +1,1 @@
-export { ExpressUserRouterFactory } from './routers'
+export { ExpressUserRouterFactory } from './ExpressUserRouterFactory'

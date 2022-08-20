@@ -1,6 +1,4 @@
 export class Logger {
-    constructor() { }
-
     log(message: string) {
         const date = new Date()
         const text = `DEBUG: ${this.getDateString(date)} - ${message}`

@@ -1,4 +1,4 @@
-import { Entity } from "../../../domain";
+import { Entity } from "../../domain";
 
 export abstract class MemoryBaseDataModel<T extends Entity> {
     constructor(

@@ -1,4 +1,4 @@
-import { Email, Id, Name, Password, User } from "../../../domain";
+import { Email, Id, Name, Password, User } from "../../domain";
 import { MemoryBaseDataModel } from "./BaseDataModal";
 
 export class MemoryUserDataModel extends MemoryBaseDataModel<User> {

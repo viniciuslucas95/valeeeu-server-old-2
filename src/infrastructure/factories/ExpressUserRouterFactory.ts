@@ -1,10 +1,9 @@
 import { Router } from 'express'
 
-import { ExpressUserController } from '../../../api'
-import { EmailUniquenessChecker, IdUniquenessChecker, UserCreationCommandHandler } from '../../../application'
-import { BcryptHasherHandler } from '../../bcrypt'
-import { MemoryUserRepository } from '../../user-repository'
-import { UuidIdHandler } from '../../uuid'
+import { ExpressUserController } from '../../api'
+import { EmailUniquenessChecker, IdUniquenessChecker, UserCreationCommandHandler } from '../../application'
+import { BcryptHasherHandler } from '../bcrypt'
+import { MemoryUserRepository, UuidIdHandler } from '../memory'
 
 export class ExpressUserRouterFactory {
     static create() {

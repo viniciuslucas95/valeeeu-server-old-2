@@ -1,1 +1,0 @@
-export { ExpressUserRouterFactory } from './ExpressUserRouterFactory'
