@@ -3,6 +3,7 @@ export { WrongCredentialsError } from './WrongCredentialsError'
 export { Email, IEmailUniquenessChecker } from './email'
 export { Password } from './Password'
 export {
-    HashedToken, ITokenHandler, Token,
-    NonHashedToken
-} from './token'
+    Auth, HashedToken, ITokenHandler,
+    NonHashedToken, Token
+} from './auth'
+export { NoAuthError } from './NoAuthError'

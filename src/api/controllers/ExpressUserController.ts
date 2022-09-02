@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import { IUserCreationCommandHandler, UserCreationCommand } from "../application";
-import { StatusCode } from "../domain";
+import { IUserCreationCommandHandler, UserCreationCommand } from "../../application";
+import { StatusCode } from "../../domain";
 
 export class ExpressUserController {
     constructor(private readonly _userCreationCommandHandler: IUserCreationCommandHandler) { }

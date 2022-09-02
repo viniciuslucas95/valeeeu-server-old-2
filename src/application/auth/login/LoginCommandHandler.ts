@@ -1,7 +1,9 @@
 import {
+    Auth,
     Email, HashedToken, Id, IHashHandler, IIdHandler,
-    ITokenHandler, NonHashedToken, NotFoundError, Token,
+    ITokenHandler, NonHashedToken, Token
 } from "../../../domain";
+import { UserNotFoundError } from "../../errors";
 import { IUserRepositoryReader, IUserRepositoryWriter } from "../../user";
 import { TokenPayload } from "../TokenPayload";
 import { ILoginCommandHandler } from "./ILoginCommandHandler";
@@ -28,7 +30,7 @@ export class LoginCommandHandler implements ILoginCommandHandler {
         const user = await this._userRepository
             .getByEmail(Email.from(email))
 
-        if (!user) throw new NotFoundError('User')
+        if (!user) throw new UserNotFoundError()
 
         await user.verifyPassword(password, this._hashHandler)
 
@@ -54,8 +56,9 @@ export class LoginCommandHandler implements ILoginCommandHandler {
             )
         ])
 
-        user.changeAccessToken(accessToken)
-        user.changeRefreshToken(refreshToken)
+        const auth = Auth.create(accessToken, refreshToken)
+
+        user.createAuth(auth)
 
         await this._userRepository.createOrUpdate(user)
 

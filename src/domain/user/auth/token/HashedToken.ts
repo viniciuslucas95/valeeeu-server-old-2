@@ -1,4 +1,4 @@
-import { IHashHandler, ValueObject } from "../../shared";
+import { IHashHandler, ValueObject } from "../../../shared";
 import { NonHashedToken } from "./NonHashedToken";
 
 export class HashedToken extends ValueObject {

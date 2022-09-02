@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
 
-import { ILoginCommandHandler, LoginCommand } from "../application";
-import { StatusCode } from "../domain";
+import { ILoginCommandHandler, LoginCommand } from "../../application";
+import { StatusCode } from "../../domain";
 
 export class ExpressAuthController {
-    constructor(private readonly _loginCommandHandler: ILoginCommandHandler) { }
+    constructor(
+        private readonly _loginCommandHandler: ILoginCommandHandler
+    ) { }
 
     async post(req: Request, res: Response) {
         const body = req.body

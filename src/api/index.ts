@@ -1,3 +1,8 @@
-export { ExpressErrorMiddleware } from './ExpressErrorMiddleware'
-export { ExpressUserController } from './ExpressUserController'
-export { ExpressAuthController } from './ExpressAuthController'
+export {
+    ExpressAuthController,
+    ExpressUserController
+} from './controllers'
+export {
+    ExpressAccessTokenVerificationMiddleware,
+    ExpressErrorMiddleware
+} from './middlewares'

@@ -7,7 +7,8 @@ export {
 } from './errors'
 export {
     User, WrongCredentialsError, Email, IEmailUniquenessChecker,
-    Password, HashedToken, ITokenHandler, Token, NonHashedToken
+    Password, HashedToken, ITokenHandler, Token, NonHashedToken,
+    Auth, NoAuthError
 } from './user'
 export { StatusCode } from './StatusCode'
 export {

@@ -1,7 +1,8 @@
 export { BcryptHasherHandler } from './BcryptHasherHandler'
 export {
     ExpressUserRouterFactory, EnvError,
-    ExpressAuthRouterFactory
+    ExpressAuthRouterFactory, ExpressErrorMiddlewareFactory,
+    ExpressAccessTokenVerificationMiddlewareFactory
 } from './factories'
 export {
     MemoryBaseDataModel, MemoryUserDataModel,

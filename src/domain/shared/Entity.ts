@@ -14,13 +14,17 @@ export abstract class Entity extends AggregateRoot {
         return this._updatedAt
     }
 
-    protected constructor(protected readonly _id: Id) {
+    protected constructor(
+        protected readonly _id: Id,
+        createdAt?: Date,
+        updatedAt?: Date
+    ) {
         super()
 
         const now = new Date()
 
-        this.createdAt = now
-        this._updatedAt = now
+        this.createdAt = createdAt ?? now
+        this._updatedAt = updatedAt ?? now
     }
 
     protected updateModificationDate() {

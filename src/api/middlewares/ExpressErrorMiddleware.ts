@@ -1,6 +1,6 @@
 import { NextFunction, Response, Request } from "express";
 
-import { BaseError, ILogger, StatusCode } from "../domain";
+import { ILogger, BaseError, StatusCode } from "../../domain";
 
 export class ExpressErrorMiddleware {
     constructor(private readonly _logger: ILogger) { }

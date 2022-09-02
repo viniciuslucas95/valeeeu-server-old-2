@@ -1,4 +1,4 @@
-import { IIdHandler, ValueObject } from "../../shared";
+import { IIdHandler, ValueObject } from "../../../shared";
 import { ITokenHandler } from "./ITokenHandler";
 
 export class NonHashedToken extends ValueObject {

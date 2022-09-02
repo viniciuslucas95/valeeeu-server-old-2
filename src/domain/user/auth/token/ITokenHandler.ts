@@ -1,4 +1,4 @@
-import { IIdHandler } from "../../shared";
+import { IIdHandler } from "../../../shared";
 
 export interface ITokenHandler {
     generate(
@@ -7,4 +7,9 @@ export interface ITokenHandler {
         daysToExpire: number,
         idHandler: IIdHandler
     ): string
+
+    verify<T extends object>(
+        token: string,
+        secret: string
+    ): T
 }
